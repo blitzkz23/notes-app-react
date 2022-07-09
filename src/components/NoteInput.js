@@ -47,13 +47,24 @@ class NoteInput extends React.Component {
           Max Karakter: {this.state.maxLength}
         </p>
 
-        <input
-          className="note-input__title"
-          type="text"
-          placeholder="Masukkan judul..."
-          value={this.state.title}
-          onChange={this.onTitleChangeEventHandler}
-        ></input>
+        {this.state.maxLength === 0 ? (
+          <input
+            className="note-input__title"
+            type="text"
+            placeholder="Masukkan judul..."
+            value={this.state.title}
+            onChange={this.onTitleChangeEventHandler}
+            disabled
+          ></input>
+        ) : (
+          <input
+            className="note-input__title"
+            type="text"
+            placeholder="Masukkan judul..."
+            value={this.state.title}
+            onChange={this.onTitleChangeEventHandler}
+          ></input>
+        )}
 
         <textarea
           className="note-input__body"
@@ -63,7 +74,6 @@ class NoteInput extends React.Component {
           value={this.state.body}
           onChange={this.onBodyChangeEventHandler}
         ></textarea>
-
         <button className="note-input__button">Buat</button>
       </form>
     );

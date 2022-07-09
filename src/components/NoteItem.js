@@ -3,7 +3,15 @@ import { showFormattedDate } from "../utils/data";
 import NoteItemAction from "./NoteItemAction";
 import NoteItemContent from "./NoteItemContent";
 
-function NoteItem({ id, title, createdAt, body }) {
+function NoteItem({
+  id,
+  title,
+  createdAt,
+  body,
+  archived,
+  archiveNote,
+  deleteNote,
+}) {
   return (
     <div className="note-item">
       <NoteItemContent
@@ -11,7 +19,12 @@ function NoteItem({ id, title, createdAt, body }) {
         createdAt={showFormattedDate(createdAt)}
         body={body}
       />
-      <NoteItemAction id={id} />
+      <NoteItemAction
+        id={id}
+        archived={archived}
+        archiveNote={archiveNote}
+        deleteNote={deleteNote}
+      />
     </div>
   );
 }

@@ -33,15 +33,31 @@ class NoteApp extends React.Component {
     });
   }
 
-  onArchiveNoteHandler() {}
+  onArchiveNoteHandler(id) {
+    const { notes } = this.state;
+    const noteIndex = notes.findIndex((note) => note.id === id);
+    console.log(notes[noteIndex]);
+    notes[noteIndex].archived = !notes[noteIndex].archived;
+    this.setState(() => {
+      this.setState({ notes });
+    });
+  }
 
-  onDeleteNoteHandler() {}
+  onDeleteNoteHandler(id) {
+    const notes = this.state.notes.filter((note) => note.id !== id);
+    this.setState({ notes });
+  }
 
   render() {
     return (
       <div className="note-app">
         <NoteHeader />
-        <NoteBody notes={this.state.notes} addNote={this.onAddNoteHandler} />
+        <NoteBody
+          notes={this.state.notes}
+          addNote={this.onAddNoteHandler}
+          deleteNote={this.onDeleteNoteHandler}
+          archiveNote={this.onArchiveNoteHandler}
+        />
       </div>
     );
   }
