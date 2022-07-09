@@ -11,9 +11,22 @@ class NoteApp extends React.Component {
       notes: getInitialData(),
     };
 
+    this.onSearchNoteHandler = this.onSearchNoteHandler.bind(this);
     this.onAddNoteHandler = this.onAddNoteHandler.bind(this);
     this.onArchiveNoteHandler = this.onArchiveNoteHandler.bind(this);
     this.onDeleteNoteHandler = this.onDeleteNoteHandler.bind(this);
+  }
+
+  onSearchNoteHandler(queryInput) {
+    const notes = this.state.notes.filter((note) => {
+      const loweredCaseTitle = note.title.toLowerCase();
+      const jammedNoteTitle = loweredCaseTitle.replace(/\s/g, "");
+      const loweredCaseQuery = queryInput.toString().toLowerCase();
+      const jammedQuery = loweredCaseQuery.replace(/\s/g, "");
+      return jammedNoteTitle.includes(jammedQuery) !== -1;
+    });
+    console.log(notes);
+    this.setState({ notes });
   }
 
   onAddNoteHandler({ title, body }) {
@@ -36,7 +49,6 @@ class NoteApp extends React.Component {
   onArchiveNoteHandler(id) {
     const { notes } = this.state;
     const noteIndex = notes.findIndex((note) => note.id === id);
-    console.log(notes[noteIndex]);
     notes[noteIndex].archived = !notes[noteIndex].archived;
     this.setState(() => {
       this.setState({ notes });
@@ -44,14 +56,15 @@ class NoteApp extends React.Component {
   }
 
   onDeleteNoteHandler(id) {
-    const notes = this.state.notes.filter((note) => note.id !== id);
+    let { notes } = this.state;
+    notes = notes.filter((note) => note.id !== id);
     this.setState({ notes });
   }
 
   render() {
     return (
       <div className="note-app">
-        <NoteHeader />
+        <NoteHeader searchNote={this.onSearchNoteHandler} />
         <NoteBody
           notes={this.state.notes}
           addNote={this.onAddNoteHandler}
