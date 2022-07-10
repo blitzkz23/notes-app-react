@@ -54,7 +54,7 @@ class NoteInput extends React.Component {
             placeholder="Masukkan judul..."
             value={this.state.title}
             onChange={this.onTitleChangeEventHandler}
-            disabled
+            maxLength="50"
           ></input>
         ) : (
           <input
