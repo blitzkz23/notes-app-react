@@ -6,8 +6,6 @@ function NoteList({ notes, archiveNote, deleteNote, availableQuery }) {
     (note) => note.title.toLowerCase().indexOf(availableQuery) !== -1
   );
 
-  console.log(availableQuery);
-
   return (
     <div className="notes-list">
       {filterQuery.length > 0 ? (

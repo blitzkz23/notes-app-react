@@ -10,14 +10,13 @@ class NoteHeader extends React.Component {
 
   onSearchChangeEventHandler(event) {
     event.preventDefault();
-
     this.props.searchNote(event.target.value);
   }
 
   render() {
     return (
       <div className="note-app__header">
-        <img src="./colordots.svg" alt="color dots" width="100" />
+        <img src="./colordots.svg" alt="color dots" width="80" />
         <input
           type="text"
           placeholder="Cari catatan..."
