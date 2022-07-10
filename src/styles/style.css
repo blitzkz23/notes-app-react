@@ -6,8 +6,21 @@
 
 body {
   font-family: "Inter", sans-serif;
-  background-color: #202124;
+  background-color: #9eaab4;
   color: white;
+}
+
+h1,
+h2 {
+  color: #82aaef;
+}
+
+.note-app {
+  background-color: #263238;
+  margin: 50px auto;
+  width: 1200px;
+  border-radius: 8px;
+  filter: drop-shadow(1px 2px 8px hsl(220deg 100% 55%));
 }
 
 input,
@@ -30,7 +43,7 @@ textarea::placeholder {
 .note-app__header {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   padding: 4px 16px;
   border-bottom: 1px solid #aaa;
 }
@@ -128,6 +141,10 @@ textarea::placeholder {
   margin-bottom: 4px;
 }
 
+.note-item__title {
+  color: #75c6a6;
+}
+
 .note-item__date {
   font-size: 12px;
   margin-bottom: 8px;
@@ -136,6 +153,10 @@ textarea::placeholder {
 
 .note-item__body {
   font-size: 14px;
+}
+
+.note-item__body {
+  color: #a88bd4;
 }
 
 .note-item__action {

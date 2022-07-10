@@ -14,7 +14,7 @@ class NoteHeader extends React.Component {
 
   onSearchChangeEventHandler(event) {
     event.preventDefault();
-    this.setState((prevState) => {
+    this.setState(() => {
       return {
         searchQuery: event.target.value,
       };
@@ -25,7 +25,7 @@ class NoteHeader extends React.Component {
   render() {
     return (
       <div className="note-app__header">
-        <h1>Notes</h1>
+        <img src="./colordots.svg" alt="color dots" width="100" />
         <input
           type="text"
           placeholder="Cari catatan..."
