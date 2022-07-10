@@ -12,7 +12,7 @@ body {
 
 h1,
 h2 {
-  color: #82aaef;
+  color: #a88bd4;
 }
 
 .note-app {
@@ -20,6 +20,7 @@ h2 {
   margin: 50px auto;
   width: 1200px;
   border-radius: 8px;
+  border: 5px solid white;
   filter: drop-shadow(1px 2px 8px hsl(220deg 100% 55%));
 }
 
@@ -156,7 +157,7 @@ textarea::placeholder {
 }
 
 .note-item__body {
-  color: #a88bd4;
+  color: #82aaef;
 }
 
 .note-item__action {

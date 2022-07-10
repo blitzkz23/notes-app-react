@@ -4,22 +4,14 @@ class NoteHeader extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      searchQuery: "",
-    };
-
     this.onSearchChangeEventHandler =
       this.onSearchChangeEventHandler.bind(this);
   }
 
   onSearchChangeEventHandler(event) {
     event.preventDefault();
-    this.setState(() => {
-      return {
-        searchQuery: event.target.value,
-      };
-    });
-    this.props.searchNote(this.state);
+
+    this.props.searchNote(event.target.value);
   }
 
   render() {
