@@ -9,6 +9,7 @@ class NoteApp extends React.Component {
 
     this.state = {
       notes: getInitialData(),
+      parentQuery: "",
     };
 
     this.onSearchNoteHandler = this.onSearchNoteHandler.bind(this);
@@ -18,15 +19,12 @@ class NoteApp extends React.Component {
   }
 
   onSearchNoteHandler(queryInput) {
-    const notes = this.state.notes.filter((note) => {
-      const loweredCaseTitle = note.title.toLowerCase();
-      const jammedNoteTitle = loweredCaseTitle.replace(/\s/g, "");
-      const loweredCaseQuery = queryInput.toString().toLowerCase();
-      const jammedQuery = loweredCaseQuery.replace(/\s/g, "");
-      return jammedNoteTitle.includes(jammedQuery) !== -1;
+    this.setState(() => {
+      // console.log(this.state);
+      return {
+        parentQuery: queryInput,
+      };
     });
-    console.log(notes);
-    this.setState({ notes });
   }
 
   onAddNoteHandler({ title, body }) {
@@ -70,6 +68,7 @@ class NoteApp extends React.Component {
           addNote={this.onAddNoteHandler}
           deleteNote={this.onDeleteNoteHandler}
           archiveNote={this.onArchiveNoteHandler}
+          availableQuery={this.state.parentQuery}
         />
       </div>
     );

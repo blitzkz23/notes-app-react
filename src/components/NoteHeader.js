@@ -5,7 +5,7 @@ class NoteHeader extends React.Component {
     super(props);
 
     this.state = {
-      query: "",
+      searchQuery: "",
     };
 
     this.onSearchChangeEventHandler =
@@ -16,11 +16,9 @@ class NoteHeader extends React.Component {
     event.preventDefault();
     this.setState((prevState) => {
       return {
-        ...prevState,
-        query: event.target.value,
+        searchQuery: event.target.value,
       };
     });
-
     this.props.searchNote(this.state);
   }
 

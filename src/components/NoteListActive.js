@@ -1,15 +1,18 @@
 import React from "react";
 import NoteItem from "./NoteItem";
 
-function NoteListActive({ notes, archiveNote, deleteNote }) {
-  const filterActive = notes.filter((note) => note.archived === false);
+function NoteList({ notes, archiveNote, deleteNote, availableQuery }) {
+  const filterQuery = notes.filter((note) =>
+    note.title.toLowerCase().includes(availableQuery)
+  );
 
   return (
     <div className="notes-list">
-      {filterActive.length > 0 ? (
-        filterActive.map((note) => (
+      {filterQuery.length > 0 ? (
+        filterQuery.map((note) => (
           <NoteItem
             {...note}
+            key={note.id}
             archiveNote={archiveNote}
             deleteNote={deleteNote}
           />
@@ -21,4 +24,4 @@ function NoteListActive({ notes, archiveNote, deleteNote }) {
   );
 }
 
-export default NoteListActive;
+export default NoteList;
