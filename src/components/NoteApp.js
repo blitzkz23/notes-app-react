@@ -20,7 +20,6 @@ class NoteApp extends React.Component {
 
   onSearchNoteHandler(queryInput) {
     this.setState(() => {
-      // console.log(this.state);
       return {
         parentQuery: queryInput,
       };

@@ -2,9 +2,11 @@ import React from "react";
 import NoteItem from "./NoteItem";
 
 function NoteList({ notes, archiveNote, deleteNote, availableQuery }) {
-  const filterQuery = notes.filter((note) =>
-    note.title.toLowerCase().includes(availableQuery)
+  const filterQuery = notes.filter(
+    (note) => note.title.toLowerCase().indexOf(availableQuery) !== -1
   );
+
+  console.log(availableQuery);
 
   return (
     <div className="notes-list">
