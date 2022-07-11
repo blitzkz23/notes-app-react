@@ -3,7 +3,10 @@ import NoteItem from "./NoteItem";
 
 function NoteList({ notes, archiveNote, deleteNote, availableQuery }) {
   const filterQuery = notes.filter(
-    (note) => note.title.toLowerCase().indexOf(availableQuery) !== -1
+    (note) =>
+      note.title
+        .toLowerCase()
+        .indexOf(availableQuery.toString().toLowerCase()) !== -1
   );
 
   return (
