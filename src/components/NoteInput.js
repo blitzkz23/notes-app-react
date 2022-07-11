@@ -36,7 +36,13 @@ class NoteInput extends React.Component {
 
   onSubmitEventHandler(event) {
     event.preventDefault();
-    this.props.addNote(this.state);
+    if (this.state.title == "" || (this.state.body = "")) {
+      alert("Mohon mengisi field yang masih kosong");
+    } else {
+      this.props.addNote(this.state);
+      this.state.title = "";
+      this.state.body = "";
+    }
   }
 
   render() {
