@@ -45,6 +45,7 @@ export default class NoteInput extends React.Component {
       return {
         title: "",
         body: "",
+        maxLength: 50,
       };
     });
   }
