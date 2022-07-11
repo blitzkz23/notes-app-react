@@ -2,6 +2,7 @@ import React from "react";
 import { getInitialData } from "../utils/data";
 import NoteBody from "./NoteBody";
 import NoteHeader from "./NoteHeader";
+import autoBind from "auto-bind";
 
 class NoteApp extends React.Component {
   constructor(props) {
@@ -12,10 +13,7 @@ class NoteApp extends React.Component {
       parentQuery: "",
     };
 
-    this.onSearchNoteHandler = this.onSearchNoteHandler.bind(this);
-    this.onAddNoteHandler = this.onAddNoteHandler.bind(this);
-    this.onArchiveNoteHandler = this.onArchiveNoteHandler.bind(this);
-    this.onDeleteNoteHandler = this.onDeleteNoteHandler.bind(this);
+    autoBind(this);
   }
 
   onSearchNoteHandler(queryInput) {
