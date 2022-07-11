@@ -215,3 +215,15 @@ textarea::placeholder {
     grid-template-columns: repeat(4, 1fr);
   }
 }
+
+@media only screen and (max-width: 1024px) {
+  .note-app {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .note-app__header input {
+    width: 50%;
+  }
+}

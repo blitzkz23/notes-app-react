@@ -4,7 +4,7 @@ import NoteBody from "./NoteBody";
 import NoteHeader from "./NoteHeader";
 import autoBind from "auto-bind";
 
-class NoteApp extends React.Component {
+export default class NoteApp extends React.Component {
   constructor(props) {
     super(props);
 
@@ -71,5 +71,3 @@ class NoteApp extends React.Component {
     );
   }
 }
-
-export default NoteApp;

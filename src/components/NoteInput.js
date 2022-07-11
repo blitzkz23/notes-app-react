@@ -1,6 +1,6 @@
 import React from "react";
 
-class NoteInput extends React.Component {
+export default class NoteInput extends React.Component {
   constructor(props) {
     super(props);
 
@@ -36,13 +36,17 @@ class NoteInput extends React.Component {
 
   onSubmitEventHandler(event) {
     event.preventDefault();
-    if (this.state.title == "" || (this.state.body = "")) {
+    if (this.state.title === "" || this.state.body === "") {
       alert("Mohon mengisi field yang masih kosong");
     } else {
       this.props.addNote(this.state);
-      this.state.title = "";
-      this.state.body = "";
     }
+    this.setState(() => {
+      return {
+        title: "",
+        body: "",
+      };
+    });
   }
 
   render() {
@@ -85,5 +89,3 @@ class NoteInput extends React.Component {
     );
   }
 }
-
-export default NoteInput;

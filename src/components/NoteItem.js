@@ -3,7 +3,7 @@ import { showFormattedDate } from "../utils/data";
 import NoteItemAction from "./NoteItemAction";
 import NoteItemContent from "./NoteItemContent";
 
-function NoteItem({
+export default function NoteItem({
   id,
   title,
   createdAt,
@@ -28,5 +28,3 @@ function NoteItem({
     </div>
   );
 }
-
-export default NoteItem;

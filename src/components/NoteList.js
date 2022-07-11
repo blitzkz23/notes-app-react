@@ -1,7 +1,12 @@
 import React from "react";
 import NoteItem from "./NoteItem";
 
-function NoteList({ notes, archiveNote, deleteNote, availableQuery }) {
+export default function NoteList({
+  notes,
+  archiveNote,
+  deleteNote,
+  availableQuery,
+}) {
   const filterQuery = notes.filter(
     (note) =>
       note.title
@@ -26,5 +31,3 @@ function NoteList({ notes, archiveNote, deleteNote, availableQuery }) {
     </div>
   );
 }
-
-export default NoteList;

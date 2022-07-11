@@ -2,7 +2,12 @@ import React from "react";
 import NoteItemActionArchive from "./NoteItemActionArchive";
 import NoteItemActionDelete from "./NoteItemActionDelete";
 
-function NoteItemAction({ id, archived, archiveNote, deleteNote }) {
+export default function NoteItemAction({
+  id,
+  archived,
+  archiveNote,
+  deleteNote,
+}) {
   return (
     <div className="note-item__action">
       <NoteItemActionDelete id={id} deleteNote={deleteNote} />
@@ -14,5 +19,3 @@ function NoteItemAction({ id, archived, archiveNote, deleteNote }) {
     </div>
   );
 }
-
-export default NoteItemAction;

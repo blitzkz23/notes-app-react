@@ -1,6 +1,6 @@
 import React from "react";
 
-function NoteItemContent({ title, createdAt, body }) {
+export default function NoteItemContent({ title, createdAt, body }) {
   return (
     <div className="note-item__content">
       <h5 className="note-item__title">{title}</h5>
@@ -9,5 +9,3 @@ function NoteItemContent({ title, createdAt, body }) {
     </div>
   );
 }
-
-export default NoteItemContent;

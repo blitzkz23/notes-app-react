@@ -1,6 +1,6 @@
 import React from "react";
 
-function NoteItemActionArchive({ id, archived, archiveNote }) {
+export default function NoteItemActionArchive({ id, archived, archiveNote }) {
   return (
     <React.Fragment>
       {archived === true ? (
@@ -21,5 +21,3 @@ function NoteItemActionArchive({ id, archived, archiveNote }) {
     </React.Fragment>
   );
 }
-
-export default NoteItemActionArchive;

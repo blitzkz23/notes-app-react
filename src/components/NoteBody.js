@@ -2,7 +2,13 @@ import React from "react";
 import NoteInput from "./NoteInput";
 import NoteList from "./NoteList";
 
-function NoteBody({ notes, addNote, archiveNote, deleteNote, availableQuery }) {
+export default function NoteBody({
+  notes,
+  addNote,
+  archiveNote,
+  deleteNote,
+  availableQuery,
+}) {
   const filterActive = notes.filter((note) => note.archived === false);
   const filteredArchive = notes.filter((note) => note.archived === true);
   return (
@@ -25,5 +31,3 @@ function NoteBody({ notes, addNote, archiveNote, deleteNote, availableQuery }) {
     </div>
   );
 }
-
-export default NoteBody;

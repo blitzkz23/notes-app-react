@@ -1,6 +1,6 @@
 import React from "react";
 
-function NoteItemActionDelete({ id, deleteNote }) {
+export default function NoteItemActionDelete({ id, deleteNote }) {
   return (
     <React.Fragment>
       <button
@@ -12,5 +12,3 @@ function NoteItemActionDelete({ id, deleteNote }) {
     </React.Fragment>
   );
 }
-
-export default NoteItemActionDelete;
