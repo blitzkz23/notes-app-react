@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import NoteDetail from "../components/NoteDetail";
 
 export default function DetailPageWrapper() {
+  // React hook function to accept id parameter from clicked note in HomePage
   const { id } = useParams();
   return <DetailPage id={id} />;
 }

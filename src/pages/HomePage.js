@@ -32,14 +32,6 @@ class HomePage extends React.Component {
     autoBind(this);
   }
 
-  onSearchNoteHandler(queryInput) {
-    this.setState(() => {
-      return {
-        parentQuery: queryInput,
-      };
-    });
-  }
-
   onArchiveNoteHandler(id) {
     archiveNote(id);
 
@@ -71,13 +63,20 @@ class HomePage extends React.Component {
   }
 
   render() {
+    // Filter searched keyword in notes title or body
+    const notes = this.state.notes.filter((note) => {
+      return (
+        note.title.toLowerCase().includes(this.state.keyword.toLowerCase()) ||
+        note.body.toLowerCase().includes(this.state.keyword.toLowerCase())
+      );
+    });
+
     return (
       <>
         <NoteBody
-          notes={this.state.notes}
+          notes={notes}
           keyword={this.state.keyword}
           keywordChange={this.onKeywordChangeHandler}
-          searchNote={this.onSearchNoteHandler}
           deleteNote={this.onDeleteNoteHandler}
           archiveNote={this.onArchiveNoteHandler}
           availableQuery={this.state.parentQuery}

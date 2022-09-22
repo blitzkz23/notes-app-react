@@ -13,10 +13,7 @@ export default function SearchBar({ keyword, keywordChange, searchNote }) {
         type="text"
         placeholder="Cari catatan..."
         value={keyword}
-        onChange={(event) => {
-          searchNote(event.target.value);
-          keywordChange(event.target.value);
-        }}
+        onChange={(event) => keywordChange(event.target.value)}
       ></input>
     </div>
   );
@@ -25,5 +22,4 @@ export default function SearchBar({ keyword, keywordChange, searchNote }) {
 SearchBar.propTypes = {
   keyword: PropTypes.string.isRequired,
   keywordChange: PropTypes.func.isRequired,
-  searchNote: PropTypes.func.isRequired,
 };

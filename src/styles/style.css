@@ -229,6 +229,8 @@ h2 {
   margin-top: 16px;
   font-size: 14px;
   color: #82aaef;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .note-item__action {
