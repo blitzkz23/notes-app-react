@@ -1,11 +1,11 @@
 import React from "react";
-import NoteInput from "./NoteInput";
 import NoteList from "./NoteList";
 import { PropTypes } from "prop-types";
+import SearchBar from "./SearchBar";
 
 export default function NoteBody({
   notes,
-  addNote,
+  searchNote,
   archiveNote,
   deleteNote,
   availableQuery,
@@ -14,7 +14,7 @@ export default function NoteBody({
   const filteredArchive = notes.filter((note) => note.archived === true);
   return (
     <div className="note-app__body">
-      <NoteInput addNote={addNote} />
+      <SearchBar searchNote={searchNote} />
       <h2>Catatan Aktif</h2>
       <NoteList
         notes={filterActive}

@@ -45,7 +45,7 @@ textarea::placeholder {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 4px 16px;
+  padding: 30px;
   border-bottom: 1px solid #aaa;
 }
 
@@ -55,8 +55,26 @@ textarea::placeholder {
   color: white;
 }
 
-.note-app__header input {
-  width: 360px;
+.note-app__header ul {
+  display: flex;
+}
+
+.note-app__header li {
+  list-style: none;
+  margin: 0 8px;
+}
+
+.note-app__header a {
+  color: white;
+  text-decoration: none;
+}
+
+.note-app__header a:hover {
+  color: #a88bd4;
+}
+
+.note-app__body input {
+  width: 100%;
 }
 
 .note-app__body {
@@ -172,7 +190,6 @@ textarea::placeholder {
   border: 0;
   border-top: 1px solid #aaa;
   padding: 8px 0;
-  font-family: "Inter", sans-serif;
   font-weight: bold;
   cursor: pointer;
 }
