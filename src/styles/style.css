@@ -185,6 +185,7 @@ h2 {
 .notes-list__empty-message {
   text-align: center;
   color: #aaa;
+  margin-bottom: 3em;
 }
 
 .note-item {

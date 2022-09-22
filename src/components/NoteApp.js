@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import NoteHeader from "./NoteHeader";
 import NotFound from "../pages/NotFound";
 import DetailPage from "../pages/DetailPage";
+import ArchivePage from "../pages/ArchivePage";
 
 export default function NoteApp() {
   return (
@@ -16,6 +17,7 @@ export default function NoteApp() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/add" element={<AddPage />} />
+          <Route path="/archive" element={<ArchivePage />} />
           <Route path="/note/:id" element={<DetailPage />} />
           <Route path="/*" element={<NotFound />} />
         </Routes>

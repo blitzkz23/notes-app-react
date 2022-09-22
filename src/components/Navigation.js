@@ -6,7 +6,10 @@ export default function Navigation() {
     <nav className="navigation">
       <ul>
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/">Beranda</Link>
+        </li>
+        <li>
+          <Link to="/archive">Arsip</Link>
         </li>
         <li>
           <Link to="/add">Tambah</Link>

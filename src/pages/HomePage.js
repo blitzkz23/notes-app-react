@@ -1,7 +1,6 @@
 import React from "react";
 import { getNotes, deleteNote, archiveNote } from "../utils/data";
 import NoteBody from "../components/NoteBody";
-import NoteHeader from "../components/NoteHeader";
 import autoBind from "auto-bind";
 import { useSearchParams } from "react-router-dom";
 
@@ -25,7 +24,6 @@ class HomePage extends React.Component {
 
     this.state = {
       notes: getNotes(),
-      parentQuery: "",
       keyword: props.defaultKeyword || "",
     };
 

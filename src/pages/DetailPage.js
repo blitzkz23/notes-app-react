@@ -21,9 +21,9 @@ class DetailPage extends React.Component {
   render() {
     if (this.state.note == null) {
       return (
-        <div className="note-detail__not-found">
+        <section className="note-detail__not-found">
           <p>Catatan tidak ditemukan</p>
-        </div>
+        </section>
       );
     }
 

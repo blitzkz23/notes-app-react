@@ -9,7 +9,6 @@ export default function NoteBody({
   keywordChange,
   archiveNote,
   deleteNote,
-  availableQuery,
 }) {
   const filterActive = notes.filter((note) => note.archived === false);
   const filteredArchive = notes.filter((note) => note.archived === true);
@@ -21,14 +20,6 @@ export default function NoteBody({
         notes={filterActive}
         archiveNote={archiveNote}
         deleteNote={deleteNote}
-        availableQuery={availableQuery}
-      />
-      <h2>Arsip</h2>
-      <NoteList
-        notes={filteredArchive}
-        archiveNote={archiveNote}
-        deleteNote={deleteNote}
-        availableQuery={availableQuery}
       />
     </div>
   );
@@ -38,5 +29,4 @@ NoteBody.propTypes = {
   notes: PropTypes.arrayOf(PropTypes.object).isRequired,
   archiveNote: PropTypes.func.isRequired,
   deleteNote: PropTypes.func.isRequired,
-  availableQuery: PropTypes.string,
 };
