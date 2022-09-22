@@ -83,7 +83,7 @@ textarea::placeholder {
   padding: 12px;
 }
 
-.note-app__body h2 {
+h2 {
   font-weight: normal;
   margin: 16px 0;
 }
@@ -109,6 +109,27 @@ textarea::placeholder {
 .note-input textarea {
   display: block;
   width: 100%;
+}
+
+.note-search__wrapper {
+  position: relative;
+}
+
+.note-search__icon {
+  height: 1.5rem;
+  width: 1.5rem;
+  padding: 4px;
+  position: absolute;
+  box-sizing: border-box;
+  top: 50%;
+  left: 8px;
+  transform: translateY(-50%);
+}
+
+.note-search__input {
+  height: 50px;
+  box-sizing: border-box;
+  padding-left: 2.5rem;
 }
 
 .note-input__title {
