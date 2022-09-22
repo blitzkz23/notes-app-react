@@ -7,6 +7,7 @@ export default function AddPage() {
   function onAddNoteHandler(note) {
     addNote(note);
   }
+
   return (
     <>
       <header>

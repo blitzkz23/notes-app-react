@@ -1,5 +1,5 @@
 import React from "react";
-import { getInitialData } from "../utils/data";
+import { getNotes, deleteNote, archiveNote } from "../utils/data";
 import NoteBody from "../components/NoteBody";
 import NoteHeader from "../components/NoteHeader";
 import autoBind from "auto-bind";
@@ -9,7 +9,7 @@ export default class HomePage extends React.Component {
     super(props);
 
     this.state = {
-      notes: getInitialData(),
+      notes: getNotes(),
       parentQuery: "",
     };
 
@@ -25,18 +25,23 @@ export default class HomePage extends React.Component {
   }
 
   onArchiveNoteHandler(id) {
-    const { notes } = this.state;
-    const noteIndex = notes.findIndex((note) => note.id === id);
-    notes[noteIndex].archived = !notes[noteIndex].archived;
+    archiveNote(id);
+
     this.setState(() => {
-      this.setState({ notes });
+      return {
+        notes: getNotes(),
+      };
     });
   }
 
   onDeleteNoteHandler(id) {
-    let { notes } = this.state;
-    notes = notes.filter((note) => note.id !== id);
-    this.setState({ notes });
+    deleteNote(id);
+
+    this.setState(() => {
+      return {
+        notes: getNotes(),
+      };
+    });
   }
 
   render() {

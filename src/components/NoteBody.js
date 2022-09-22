@@ -35,7 +35,7 @@ export default function NoteBody({
 
 NoteBody.propTypes = {
   notes: PropTypes.arrayOf(PropTypes.object).isRequired,
-  addNote: PropTypes.func.isRequired,
+  searchNote: PropTypes.func.isRequired,
   archiveNote: PropTypes.func.isRequired,
   deleteNote: PropTypes.func.isRequired,
   availableQuery: PropTypes.string,
