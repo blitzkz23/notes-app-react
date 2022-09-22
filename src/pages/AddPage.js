@@ -15,9 +15,6 @@ export default function AddPage() {
 
   return (
     <>
-      <header>
-        <NoteHeader />
-      </header>
       <NoteInput addNote={onAddNoteHandler} />
     </>
   );

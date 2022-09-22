@@ -2,10 +2,14 @@ import React from "react";
 import AddPage from "../pages/AddPage";
 import HomePage from "../pages/HomePage";
 import { Routes, Route } from "react-router-dom";
+import NoteHeader from "./NoteHeader";
 
 export default function NoteApp() {
   return (
     <div className="note-app">
+      <header>
+        <NoteHeader />
+      </header>
       <main>
         <Routes>
           <Route path="/" element={<HomePage />} />

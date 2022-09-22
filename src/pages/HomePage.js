@@ -6,6 +6,7 @@ import autoBind from "auto-bind";
 import { useSearchParams } from "react-router-dom";
 
 export default function HomePageWrapper() {
+  // React hook function for getting search params
   const [searchParams, setSearchParams] = useSearchParams();
   const keyword = searchParams.get("keyword");
 
@@ -72,9 +73,6 @@ class HomePage extends React.Component {
   render() {
     return (
       <>
-        <header>
-          <NoteHeader />
-        </header>
         <NoteBody
           notes={this.state.notes}
           keyword={this.state.keyword}
