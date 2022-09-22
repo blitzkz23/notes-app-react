@@ -88,6 +88,16 @@ textarea::placeholder {
   margin: 16px 0;
 }
 
+.note-app__not-found {
+  text-align: center;
+  padding: 8%;
+  font-size: 2rem;
+}
+
+.note-app__not-found p {
+  margin-top: 16px;
+}
+
 .note-input {
   margin: 0 auto;
   max-width: 500px;
