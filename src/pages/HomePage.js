@@ -3,14 +3,29 @@ import { getNotes, deleteNote, archiveNote } from "../utils/data";
 import NoteBody from "../components/NoteBody";
 import NoteHeader from "../components/NoteHeader";
 import autoBind from "auto-bind";
+import { useSearchParams } from "react-router-dom";
 
-export default class HomePage extends React.Component {
+export default function HomePageWrapper() {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const keyword = searchParams.get("keyword");
+
+  function changeSearchParams(keyword) {
+    setSearchParams({ keyword });
+  }
+
+  return (
+    <HomePage defaultKeyword={keyword} keywordChange={changeSearchParams} />
+  );
+}
+
+class HomePage extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
       notes: getNotes(),
       parentQuery: "",
+      keyword: props.defaultKeyword || "",
     };
 
     autoBind(this);
@@ -44,6 +59,16 @@ export default class HomePage extends React.Component {
     });
   }
 
+  onKeywordChangeHandler(keyword) {
+    this.setState(() => {
+      return {
+        keyword,
+      };
+    });
+
+    this.props.keywordChange(keyword);
+  }
+
   render() {
     return (
       <>
@@ -52,6 +77,8 @@ export default class HomePage extends React.Component {
         </header>
         <NoteBody
           notes={this.state.notes}
+          keyword={this.state.keyword}
+          keywordChange={this.onKeywordChangeHandler}
           searchNote={this.onSearchNoteHandler}
           deleteNote={this.onDeleteNoteHandler}
           archiveNote={this.onArchiveNoteHandler}

@@ -6,6 +6,8 @@ import SearchBar from "./SearchBar";
 export default function NoteBody({
   notes,
   searchNote,
+  keyword,
+  keywordChange,
   archiveNote,
   deleteNote,
   availableQuery,
@@ -14,7 +16,11 @@ export default function NoteBody({
   const filteredArchive = notes.filter((note) => note.archived === true);
   return (
     <div className="note-app__body">
-      <SearchBar searchNote={searchNote} />
+      <SearchBar
+        searchNote={searchNote}
+        keyword={keyword}
+        keywordChange={keywordChange}
+      />
       <h2>Catatan Aktif</h2>
       <NoteList
         notes={filterActive}
