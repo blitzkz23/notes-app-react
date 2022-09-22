@@ -2,33 +2,22 @@ import React from "react";
 import NoteItem from "./NoteItem";
 import { PropTypes } from "prop-types";
 
-export default function NoteList({
-  notes,
-  archiveNote,
-  deleteNote,
-  availableQuery,
-}) {
-  const filterQuery = notes.filter(
-    (note) =>
-      note.title
-        .toLowerCase()
-        .indexOf(availableQuery.toString().toLowerCase()) !== -1
-  );
-
-  return (
+export default function NoteList({ notes, archiveNote, deleteNote }) {
+  return notes.length > 0 ? (
     <div className="notes-list">
-      {filterQuery.length > 0 ? (
-        filterQuery.map((note) => (
-          <NoteItem
-            {...note}
-            key={note.id}
-            archiveNote={archiveNote}
-            deleteNote={deleteNote}
-          />
-        ))
-      ) : (
-        <div className="notes-list__empty-message">Tidak ada catatan.</div>
-      )}
+      {notes.map((note) => (
+        <NoteItem
+          {...note}
+          key={note.id}
+          archiveNote={archiveNote}
+          deleteNote={deleteNote}
+        />
+      ))}
+    </div>
+  ) : (
+    <div className="notes-list__empty-message">
+      <img src="./empty_data.svg" alt="empty" width={400} />
+      <p>Tidak ada catatan.</p>
     </div>
   );
 }

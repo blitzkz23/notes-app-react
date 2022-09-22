@@ -45,7 +45,7 @@ textarea::placeholder {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 4px 16px;
+  padding: 30px;
   border-bottom: 1px solid #aaa;
 }
 
@@ -55,8 +55,26 @@ textarea::placeholder {
   color: white;
 }
 
-.note-app__header input {
-  width: 360px;
+.note-app__header ul {
+  display: flex;
+}
+
+.note-app__header li {
+  list-style: none;
+  margin: 0 8px;
+}
+
+.note-app__header a {
+  color: white;
+  text-decoration: none;
+}
+
+.note-app__header a:hover {
+  color: #a88bd4;
+}
+
+.note-app__body input {
+  width: 100%;
 }
 
 .note-app__body {
@@ -65,19 +83,29 @@ textarea::placeholder {
   padding: 12px;
 }
 
-.note-app__body h2 {
+h2 {
   font-weight: normal;
   margin: 16px 0;
+}
+
+.note-app__not-found {
+  text-align: center;
+  padding: 8%;
+  font-size: 2rem;
+}
+
+.note-app__not-found p {
+  margin-top: 16px;
 }
 
 .note-input {
   margin: 0 auto;
   max-width: 500px;
-  margin-bottom: 48px;
+  margin-bottom: 80px;
+  margin-top: 48px;
 }
 
-.note-input input,
-.note-input textarea {
+.note-input input {
   display: block;
   width: 100%;
 }
@@ -90,10 +118,6 @@ textarea::placeholder {
   font-size: 14px;
   text-align: right;
   color: #aaa;
-}
-
-.note-input__body {
-  min-height: 175px;
 }
 
 .note-input button {
@@ -109,6 +133,47 @@ textarea::placeholder {
   cursor: pointer;
 }
 
+.note-input__body {
+  min-height: 175px;
+  display: block;
+  width: 100%;
+  border: 1px solid #aaa;
+  padding: 8px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+
+[contenteditable][placeholder]:empty:before {
+  content: attr(placeholder);
+  position: absolute;
+  color: #aaa;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: transparent;
+}
+
+.note-search__wrapper {
+  position: relative;
+}
+
+.note-search__icon {
+  height: 1.5rem;
+  width: 1.5rem;
+  padding: 4px;
+  position: absolute;
+  box-sizing: border-box;
+  top: 50%;
+  left: 8px;
+  color: #aaa;
+  transform: translateY(-50%);
+}
+
+.note-search__input {
+  height: 50px;
+  box-sizing: border-box;
+  padding-left: 2.5rem;
+}
+
 .notes-list {
   display: grid;
   grid-template-columns: 1fr;
@@ -120,6 +185,7 @@ textarea::placeholder {
 .notes-list__empty-message {
   text-align: center;
   color: #aaa;
+  margin-bottom: 3em;
 }
 
 .note-item {
@@ -133,6 +199,14 @@ textarea::placeholder {
 .note-item__content {
   padding: 12px;
   flex: 1;
+}
+
+.note-item__content a {
+  text-decoration: none;
+}
+
+.note-item__content a::hover {
+  background: #a88bd4;
 }
 
 .note-item__title {
@@ -153,11 +227,11 @@ textarea::placeholder {
 }
 
 .note-item__body {
+  margin-top: 16px;
   font-size: 14px;
-}
-
-.note-item__body {
   color: #82aaef;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .note-item__action {
@@ -172,7 +246,6 @@ textarea::placeholder {
   border: 0;
   border-top: 1px solid #aaa;
   padding: 8px 0;
-  font-family: "Inter", sans-serif;
   font-weight: bold;
   cursor: pointer;
 }
@@ -192,6 +265,29 @@ textarea::placeholder {
 
 .note-item__delete-button:hover {
   color: #b00020;
+}
+
+.note-detail__content {
+  padding: 8%;
+  font-size: 2rem;
+}
+
+.note-detail__date {
+  font-size: 16px;
+  margin-top: 8px;
+  color: #aaa;
+}
+
+.note-detail__body {
+  margin-top: 1.2em;
+  font-size: 2rem;
+  text-align: justify;
+}
+
+.note-detail__not-found {
+  text-align: center;
+  padding: 8%;
+  font-size: 2rem;
 }
 
 @media only screen and (min-width: 500px) {
