@@ -1,4 +1,5 @@
 import React from "react";
+import { PropTypes } from "prop-types";
 
 export default function NoteItemContent({ title, createdAt, body }) {
   return (
@@ -9,3 +10,9 @@ export default function NoteItemContent({ title, createdAt, body }) {
     </div>
   );
 }
+
+NoteItemContent.propTypes = {
+  title: PropTypes.string.isRequired,
+  createdAt: PropTypes.string.isRequired,
+  body: PropTypes.string.isRequired,
+};

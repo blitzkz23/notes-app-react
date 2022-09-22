@@ -2,6 +2,7 @@ import React from "react";
 import { showFormattedDate } from "../utils/data";
 import NoteItemAction from "./NoteItemAction";
 import NoteItemContent from "./NoteItemContent";
+import { PropTypes } from "prop-types";
 
 export default function NoteItem({
   id,
@@ -28,3 +29,13 @@ export default function NoteItem({
     </div>
   );
 }
+
+NoteItem.propTypes = {
+  id: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  createdAt: PropTypes.string.isRequired,
+  body: PropTypes.string.isRequired,
+  archived: PropTypes.bool.isRequired,
+  archiveNote: PropTypes.func.isRequired,
+  deleteNote: PropTypes.func.isRequired,
+};
