@@ -123,6 +123,7 @@ h2 {
   box-sizing: border-box;
   top: 50%;
   left: 8px;
+  color: #aaa;
   transform: translateY(-50%);
 }
 
@@ -185,6 +186,14 @@ h2 {
   flex: 1;
 }
 
+.note-item__content a {
+  text-decoration: none;
+}
+
+.note-item__content a::hover {
+  background: #a88bd4;
+}
+
 .note-item__title {
   text-overflow: ellipsis;
   overflow: hidden;
@@ -203,10 +212,8 @@ h2 {
 }
 
 .note-item__body {
+  margin-top: 16px;
   font-size: 14px;
-}
-
-.note-item__body {
   color: #82aaef;
 }
 
@@ -241,6 +248,29 @@ h2 {
 
 .note-item__delete-button:hover {
   color: #b00020;
+}
+
+.note-detail__content {
+  padding: 8%;
+  font-size: 2rem;
+}
+
+.note-detail__date {
+  font-size: 16px;
+  margin-top: 8px;
+  color: #aaa;
+}
+
+.note-detail__body {
+  margin-top: 1.2em;
+  font-size: 2rem;
+  text-align: justify;
+}
+
+.note-detail__not-found {
+  text-align: center;
+  padding: 8%;
+  font-size: 2rem;
 }
 
 @media only screen and (min-width: 500px) {

@@ -16,6 +16,7 @@ export default function NoteItem({
   return (
     <div className="note-item">
       <NoteItemContent
+        id={id}
         title={title}
         createdAt={showFormattedDate(createdAt)}
         body={body}

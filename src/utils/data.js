@@ -63,6 +63,19 @@ function getNotes() {
   return notes;
 }
 
+function getNoteById(id) {
+  if (!id) {
+    return null;
+  }
+
+  const filteredNote = notes.filter((note) => note.id == id);
+  if (!filteredNote.length) {
+    return null;
+  }
+
+  return filteredNote[0];
+}
+
 function addNote(note) {
   notes = [
     ...notes,
@@ -84,4 +97,11 @@ function archiveNote(id) {
   notes[noteIndex].archived = !notes[noteIndex].archived;
 }
 
-export { addNote, getNotes, deleteNote, showFormattedDate, archiveNote };
+export {
+  addNote,
+  getNotes,
+  getNoteById,
+  deleteNote,
+  showFormattedDate,
+  archiveNote,
+};
