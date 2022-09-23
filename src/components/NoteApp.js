@@ -8,6 +8,12 @@ import DetailPage from "../pages/DetailPage";
 import ArchivePage from "../pages/ArchivePage";
 
 export default function NoteApp() {
+  const pathDefault = "/";
+  const pathAdd = "/add";
+  const pathDetail = "/note/:id";
+  const pathArchive = "/archive";
+  const pathNotFound = "/*";
+
   return (
     <div className="note-app">
       <header>
@@ -15,11 +21,11 @@ export default function NoteApp() {
       </header>
       <main>
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/add" element={<AddPage />} />
-          <Route path="/archive" element={<ArchivePage />} />
-          <Route path="/note/:id" element={<DetailPage />} />
-          <Route path="/*" element={<NotFound />} />
+          <Route path={pathDefault} element={<HomePage />} />
+          <Route path={pathAdd} element={<AddPage />} />
+          <Route path={pathArchive} element={<ArchivePage />} />
+          <Route path={pathDetail} element={<DetailPage />} />
+          <Route path={pathNotFound} element={<NotFound />} />
         </Routes>
       </main>
     </div>

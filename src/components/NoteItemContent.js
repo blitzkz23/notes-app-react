@@ -16,6 +16,7 @@ export default function NoteItemContent({ id, title, createdAt, body }) {
 }
 
 NoteItemContent.propTypes = {
+  id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   createdAt: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,

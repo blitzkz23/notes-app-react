@@ -11,7 +11,7 @@ export default function NoteBody({
   deleteNote,
 }) {
   const filterActive = notes.filter((note) => note.archived === false);
-  const filteredArchive = notes.filter((note) => note.archived === true);
+
   return (
     <div className="note-app__body">
       <SearchBar keyword={keyword} keywordChange={keywordChange} />
@@ -27,6 +27,8 @@ export default function NoteBody({
 
 NoteBody.propTypes = {
   notes: PropTypes.arrayOf(PropTypes.object).isRequired,
+  keyword: PropTypes.string.isRequired,
+  keywordChange: PropTypes.func.isRequired,
   archiveNote: PropTypes.func.isRequired,
   deleteNote: PropTypes.func.isRequired,
 };

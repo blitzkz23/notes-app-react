@@ -30,7 +30,7 @@ export default class NoteInput extends React.Component {
     this.setState((prevState) => {
       return {
         ...prevState,
-        body: event.target.innerHTML, // Ingat! innerHTML, bukan value.
+        body: event.target.innerHTML,
       };
     });
   }

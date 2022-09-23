@@ -68,7 +68,7 @@ function getNoteById(id) {
     return null;
   }
 
-  const filteredNote = notes.filter((note) => note.id == id);
+  const filteredNote = notes.filter((note) => note.id === id);
   if (!filteredNote.length) {
     return null;
   }

@@ -26,5 +26,4 @@ NoteList.propTypes = {
   notes: PropTypes.arrayOf(PropTypes.object).isRequired,
   archiveNote: PropTypes.func.isRequired,
   deleteNote: PropTypes.func.isRequired,
-  availableQuery: PropTypes.string,
 };

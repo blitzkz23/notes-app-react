@@ -1,5 +1,4 @@
 import React from "react";
-import NoteHeader from "../components/NoteHeader";
 import NoteInput from "../components/NoteInput";
 import { addNote } from "../utils/data";
 import { useNavigate } from "react-router-dom";
