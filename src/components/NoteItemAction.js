@@ -1,6 +1,7 @@
 import React from "react";
 import NoteItemActionArchive from "./NoteItemActionArchive";
 import NoteItemActionDelete from "./NoteItemActionDelete";
+import { PropTypes } from "prop-types";
 
 export default function NoteItemAction({
   id,
@@ -19,3 +20,10 @@ export default function NoteItemAction({
     </div>
   );
 }
+
+NoteItemAction.propTypes = {
+  id: PropTypes.number.isRequired,
+  archived: PropTypes.bool.isRequired,
+  archiveNote: PropTypes.func.isRequired,
+  deleteNote: PropTypes.func.isRequired,
+};

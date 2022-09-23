@@ -1,4 +1,5 @@
 import React from "react";
+import { PropTypes } from "prop-types";
 
 export default class NoteInput extends React.Component {
   constructor(props) {
@@ -29,7 +30,7 @@ export default class NoteInput extends React.Component {
     this.setState((prevState) => {
       return {
         ...prevState,
-        body: event.target.value,
+        body: event.target.innerHTML,
       };
     });
   }
@@ -77,16 +78,22 @@ export default class NoteInput extends React.Component {
           ></input>
         )}
 
-        <textarea
+        <div
           className="note-input__body"
           type="text"
           placeholder="Masukkan isi catatan disini..."
           rows="5"
           value={this.state.body}
-          onChange={this.onBodyChangeEventHandler}
-        ></textarea>
+          onInput={this.onBodyChangeEventHandler}
+          contentEditable
+        />
+
         <button className="note-input__button">Buat</button>
       </form>
     );
   }
 }
+
+NoteInput.propTypes = {
+  addNote: PropTypes.func.isRequired,
+};

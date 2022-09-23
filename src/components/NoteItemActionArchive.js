@@ -1,4 +1,5 @@
 import React from "react";
+import { PropTypes } from "prop-types";
 
 export default function NoteItemActionArchive({ id, archived, archiveNote }) {
   return (
@@ -21,3 +22,9 @@ export default function NoteItemActionArchive({ id, archived, archiveNote }) {
     </React.Fragment>
   );
 }
+
+NoteItemActionArchive.propTypes = {
+  id: PropTypes.number.isRequired,
+  archived: PropTypes.bool.isRequired,
+  archiveNote: PropTypes.func.isRequired,
+};

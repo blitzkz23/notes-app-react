@@ -1,4 +1,5 @@
 import React from "react";
+import { PropTypes } from "prop-types";
 
 export default function NoteItemActionDelete({ id, deleteNote }) {
   return (
@@ -12,3 +13,8 @@ export default function NoteItemActionDelete({ id, deleteNote }) {
     </React.Fragment>
   );
 }
+
+NoteItemActionDelete.propTypes = {
+  id: PropTypes.number.isRequired,
+  deleteNote: PropTypes.func.isRequired,
+};
