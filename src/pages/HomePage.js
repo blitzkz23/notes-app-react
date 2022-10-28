@@ -1,85 +1,119 @@
 import React from "react";
-import { getNotes, deleteNote, archiveNote } from "../utils/data";
 import NoteBody from "../components/NoteBody";
 import autoBind from "auto-bind";
+import { getNotes } from "../utils/api";
 import { useSearchParams } from "react-router-dom";
 
-export default function HomePageWrapper() {
-  // React hook function for getting search params
+export default function HomePage() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const keyword = searchParams.get("keyword");
+  const [keyword, setKeyword] = React.useState(
+    searchParams.get("keyword") || ""
+  );
+  const [notes, setNotes] = React.useState([]);
 
-  function changeSearchParams(keyword) {
+  React.useEffect(() => {
+    getNotes().then(({ data }) => {
+      setNotes(data);
+    });
+  }, []);
+
+  function onKeywordChangeHandler(keyword) {
+    setKeyword(keyword);
     setSearchParams({ keyword });
   }
 
+  const filteredNotes = notes.filter((note) => {
+    return note.title.toLowerCase().includes(keyword.toLowerCase());
+  });
+
   return (
-    <HomePage defaultKeyword={keyword} keywordChange={changeSearchParams} />
+    <>
+      <NoteBody
+        notes={filteredNotes}
+        keyword={keyword}
+        keywordChange={onKeywordChangeHandler}
+        // deleteNote={this.onDeleteNoteHandler}
+        // archiveNote={this.onArchiveNoteHandler}
+      />
+    </>
   );
 }
+// export default function HomePageWrapper() {
+//   // React hook function for getting search params
+//   const [searchParams, setSearchParams] = useSearchParams();
+//   const keyword = searchParams.get("keyword");
 
-class HomePage extends React.Component {
-  constructor(props) {
-    super(props);
+//   function changeSearchParams(keyword) {
+//     setSearchParams({ keyword });
+//   }
 
-    this.state = {
-      notes: getNotes(),
-      keyword: props.defaultKeyword || "",
-    };
+//   return (
+//     <HomePage defaultKeyword={keyword} keywordChange={changeSearchParams} />
+//   );
+// }
 
-    autoBind(this);
-  }
+// class HomePage extends React.Component {
+//   constructor(props) {
+//     super(props);
 
-  onArchiveNoteHandler(id) {
-    archiveNote(id);
+//     this.state = {
+//       notes: getNotes(),
+//       keyword: props.defaultKeyword || "",
+//     };
 
-    this.setState(() => {
-      return {
-        notes: getNotes(),
-      };
-    });
-  }
+//     autoBind(this);
+//   }
 
-  onDeleteNoteHandler(id) {
-    deleteNote(id);
+//   onArchiveNoteHandler(id) {
+//     archiveNote(id);
 
-    this.setState(() => {
-      return {
-        notes: getNotes(),
-      };
-    });
-  }
+//     this.setState(() => {
+//       return {
+//         notes: getNotes(),
+//       };
+//     });
+//   }
 
-  onKeywordChangeHandler(keyword) {
-    this.setState(() => {
-      return {
-        keyword,
-      };
-    });
+//   onDeleteNoteHandler(id) {
+//     deleteNote(id);
 
-    this.props.keywordChange(keyword);
-  }
+//     this.setState(() => {
+//       return {
+//         notes: getNotes(),
+//       };
+//     });
+//   }
 
-  render() {
-    // Filter searched keyword in notes title or body
-    const notes = this.state.notes.filter((note) => {
-      return (
-        note.title.toLowerCase().includes(this.state.keyword.toLowerCase()) ||
-        note.body.toLowerCase().includes(this.state.keyword.toLowerCase())
-      );
-    });
+//   onKeywordChangeHandler(keyword) {
+//     this.setState(() => {
+//       return {
+//         keyword,
+//       };
+//     });
 
-    return (
-      <>
-        <NoteBody
-          notes={notes}
-          keyword={this.state.keyword}
-          keywordChange={this.onKeywordChangeHandler}
-          deleteNote={this.onDeleteNoteHandler}
-          archiveNote={this.onArchiveNoteHandler}
-          availableQuery={this.state.parentQuery}
-        />
-      </>
-    );
-  }
-}
+//     this.props.keywordChange(keyword);
+//   }
+
+//   render() {
+//     // Filter searched keyword in notes title or body
+//     const notes = this.state.notes.filter((note) => {
+//       return (
+//         note.title.toLowerCase().includes(this.state.keyword.toLowerCase()) ||
+//         note.body.toLowerCase().includes(this.state.keyword.toLowerCase())
+//       );
+//     });
+
+//     return (
+//       <>
+//         <NoteBody
+//           notes={notes}
+//           keyword={this.state.keyword}
+//           keywordChange={this.onKeywordChangeHandler}
+//           deleteNote={this.onDeleteNoteHandler}
+//           archiveNote={this.onArchiveNoteHandler}
+//           availableQuery={this.state.parentQuery}
+//         />
+//       </>
+//     );
+//   }
+// }
