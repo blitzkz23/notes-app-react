@@ -105,6 +105,10 @@ h2 {
   margin-top: 48px;
 }
 
+.note-input h1 {
+  font-size: 2rem;
+}
+
 .note-input input {
   display: block;
   width: 100%;
@@ -112,6 +116,7 @@ h2 {
 
 .note-input__title {
   font-weight: bold;
+  margin-top: 16px;
 }
 
 .note-input__title__char-limit {
@@ -288,6 +293,20 @@ h2 {
   text-align: center;
   padding: 8%;
   font-size: 2rem;
+}
+
+.auth-subtitle {
+  margin-bottom: 32px;
+  color: #aaa;
+}
+
+.auth-account__nav {
+  margin-bottom: 32px;
+}
+
+.auth-account__nav a {
+  color: #ff5f52;
+  font-weight: bold;
 }
 
 @media only screen and (min-width: 500px) {

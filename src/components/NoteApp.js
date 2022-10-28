@@ -6,6 +6,8 @@ import NoteHeader from "./NoteHeader";
 import NotFound from "../pages/NotFound";
 import DetailPage from "../pages/DetailPage";
 import ArchivePage from "../pages/ArchivePage";
+import RegisterPage from "../pages/RegisterPage";
+import LoginPage from "../pages/LoginPage";
 
 export default function NoteApp() {
   const pathDefault = "/";
@@ -13,6 +15,8 @@ export default function NoteApp() {
   const pathDetail = "/note/:id";
   const pathArchive = "/archive";
   const pathNotFound = "/*";
+  const pathRegister = "/register";
+  const pathLogin = "/login";
 
   return (
     <div className="note-app">
@@ -26,6 +30,8 @@ export default function NoteApp() {
           <Route path={pathArchive} element={<ArchivePage />} />
           <Route path={pathDetail} element={<DetailPage />} />
           <Route path={pathNotFound} element={<NotFound />} />
+          <Route path={pathRegister} element={<RegisterPage />} />
+          <Route path={pathLogin} element={<LoginPage />} />
         </Routes>
       </main>
     </div>
