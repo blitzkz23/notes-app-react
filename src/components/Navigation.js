@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function Navigation() {
+export default function Navigation({ logout }) {
   return (
     <nav className="navigation">
       <ul>
@@ -15,10 +15,9 @@ export default function Navigation() {
           <Link to="/add">Tambah</Link>
         </li>
         <li>
-          <Link to="/register">Register</Link>
-        </li>
-        <li>
-          <Link to="/login">Login</Link>
+          <button onClick={logout}>
+            <Link to="/">Keluar</Link>
+          </button>
         </li>
       </ul>
     </nav>

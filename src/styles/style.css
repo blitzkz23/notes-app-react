@@ -128,7 +128,7 @@ h2 {
 .note-input button {
   display: block;
   width: 100%;
-  padding: 8px;
+  padding: 16px 8px;
   background-color: transparent;
   font-family: "Inter", sans-serif;
   color: white;
@@ -302,10 +302,11 @@ h2 {
 
 .auth-account__nav {
   margin-bottom: 32px;
+  color: #aaa;
 }
 
 .auth-account__nav a {
-  color: #ff5f52;
+  color: #a88bd4;
   font-weight: bold;
 }
 

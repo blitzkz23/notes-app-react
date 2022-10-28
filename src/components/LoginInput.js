@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
-export default function RegisterInput() {
+export default function LoginInput({ login }) {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
 
@@ -13,8 +14,13 @@ export default function RegisterInput() {
     setPassword(event.target.value);
   }
 
+  function onSubmitHandler(event) {
+    event.preventDefault();
+    login({ email, password });
+  }
+
   return (
-    <form className="note-input" onSubmit={setEmail}>
+    <form className="note-input" onSubmit={onSubmitHandler}>
       <h1>Masuk </h1>
       <h4 className="auth-subtitle">Silahkan masuk untuk melanjutkan...</h4>
 
@@ -43,7 +49,13 @@ export default function RegisterInput() {
         Belum punya akun? <Link to="/register">Daftar</Link>
       </p>
 
-      <button className="note-input__button">Masuk</button>
+      <button className="note-input__button">
+        <h3>Masuk</h3>
+      </button>
     </form>
   );
 }
+
+LoginInput.propTypes = {
+  login: PropTypes.func.isRequired,
+};
