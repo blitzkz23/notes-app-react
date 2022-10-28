@@ -140,6 +140,86 @@ async function getNotes() {
   return { error: false, data: responseJson.data };
 }
 
+/**
+ *
+ * Get all archived notes request to API service.
+ * @returns
+ */
+async function getArchivedNotes() {
+  const response = await fetchWithToken(`${BASE_URL}/notes/archived`);
+  const responseJson = await response.json();
+
+  if (responseJson.status !== "success") {
+    alert(responseJson.message);
+    return { error: true, data: [] };
+  }
+
+  return { error: false, data: responseJson.data };
+}
+
+/**
+ *
+ * Archive selected note by id request to API service.
+ * @param {*} id
+ * @returns
+ */
+async function archiveNote(id) {
+  const response = await fetchWithToken(`${BASE_URL}/notes/${id}/archive`, {
+    method: "POST",
+  });
+
+  const responseJson = await response.json();
+
+  if (responseJson.status !== "success") {
+    alert(responseJson.message);
+    return { error: true };
+  }
+
+  return { error: false };
+}
+
+/**
+ *
+ * Unarchive selected note by id request to API service.
+ * @param {*} id
+ * @returns
+ */
+async function unarchiveNote(id) {
+  const response = await fetchWithToken(`${BASE_URL}/notes/${id}/unarchive`, {
+    method: "POST",
+  });
+
+  const responseJson = await response.json();
+
+  if (responseJson.status !== "success") {
+    alert(responseJson.message);
+    return { error: true };
+  }
+
+  return { error: false };
+}
+
+/**
+ *
+ * Delete selected note by id request to API service.
+ * @param {*} id
+ * @returns
+ */
+async function deleteNote(id) {
+  const response = await fetchWithToken(`${BASE_URL}/notes/${id}`, {
+    method: "DELETE",
+  });
+
+  const responseJson = await response.json();
+
+  if (responseJson.status !== "success") {
+    alert(responseJson.message);
+    return { error: true };
+  }
+
+  return { error: false };
+}
+
 export {
   register,
   login,
@@ -148,4 +228,8 @@ export {
   getUserLogged,
   addNote,
   getNotes,
+  getArchivedNotes,
+  archiveNote,
+  unarchiveNote,
+  deleteNote,
 };

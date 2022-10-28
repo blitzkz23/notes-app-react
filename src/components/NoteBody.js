@@ -10,12 +10,14 @@ export default function NoteBody({
   archiveNote,
   deleteNote,
 }) {
+  const filterActive = notes.filter((note) => note.archived === false);
+
   return (
     <div className="note-app__body">
       <SearchBar keyword={keyword} keywordChange={keywordChange} />
       <h2>Catatan Aktif</h2>
       <NoteList
-        notes={notes}
+        notes={filterActive}
         archiveNote={archiveNote}
         deleteNote={deleteNote}
       />
