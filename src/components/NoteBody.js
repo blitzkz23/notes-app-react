@@ -3,6 +3,8 @@ import NoteList from "./NoteList";
 import { PropTypes } from "prop-types";
 import SearchBar from "./SearchBar";
 import LocaleContext from "../contexts/LocaleContext";
+import { FiPlus } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 export default function NoteBody({
   name,
@@ -29,6 +31,11 @@ export default function NoteBody({
         archiveNote={archiveNote}
         deleteNote={deleteNote}
       />
+      <button className="note-app__button-add">
+        <Link to="/add">
+          <FiPlus />
+        </Link>
+      </button>
     </div>
   );
 }

@@ -1,7 +1,6 @@
 import React from "react";
 import { PropTypes } from "prop-types";
 import parser from "html-react-parser";
-import { type } from "@testing-library/user-event/dist/type";
 
 export default function NoteDetail({ title, body, createdAt }) {
   console.log("Emang ini bukan string?", typeof body);

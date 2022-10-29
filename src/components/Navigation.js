@@ -18,9 +18,6 @@ export default function Navigation({ logout }) {
           <li>
             <Link to="/archive">{locale === "id" ? "Arsip" : "Archive"}</Link>
           </li>
-          <li>
-            <Link to="/add">{locale === "id" ? "Tambah" : "Add"}</Link>
-          </li>
         </ul>
       </nav>
       <nav>

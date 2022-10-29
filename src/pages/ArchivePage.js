@@ -1,7 +1,6 @@
 import React from "react";
 import { getArchivedNotes, unarchiveNote, deleteNote } from "../utils/api";
 import LocaleContext from "../contexts/LocaleContext";
-import {} from "../utils/data";
 import NoteList from "../components/NoteList";
 
 export default function ArchivePage() {
