@@ -1,24 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import useInput from "../hooks/useInput";
 
 export default function RegisterInput({ register }) {
-  // React hook function to store the value of the input in the state
-  const [name, setName] = React.useState("");
-  const [email, setEmail] = React.useState("");
-  const [password, setPassword] = React.useState("");
-
-  function onNameChangeHandler(event) {
-    setName(event.target.value);
-  }
-
-  function onEmailChangeHandler(event) {
-    setEmail(event.target.value);
-  }
-
-  function onPasswordChangeHandler(event) {
-    setPassword(event.target.value);
-  }
+  // Custom hooks
+  const [name, onNameChangeHandler] = useInput("");
+  const [email, onEmailChangeHandler] = useInput("");
+  const [password, onPasswordChangeHandler] = useInput("");
 
   function onSubmitHandler(event) {
     event.preventDefault();

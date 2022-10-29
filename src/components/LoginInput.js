@@ -1,18 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import useInput from "../hooks/useInput";
 
 export default function LoginInput({ login }) {
-  const [email, setEmail] = React.useState("");
-  const [password, setPassword] = React.useState("");
-
-  function onEmailChangeHandler(event) {
-    setEmail(event.target.value);
-  }
-
-  function onPasswordChangeHandler(event) {
-    setPassword(event.target.value);
-  }
+  const [email, onEmailChangeHandler] = useInput("");
+  const [password, onPasswordChangeHandler] = useInput("");
 
   function onSubmitHandler(event) {
     event.preventDefault();

@@ -146,6 +146,14 @@ h2 {
   margin: 16px 0;
 }
 
+.note-app__loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin: 6rem auto;
+}
+
 .note-app__not-found {
   text-align: center;
   padding: 8%;

@@ -81,12 +81,16 @@ export default function NoteApp() {
         <LocaleContext.Provider value={localeContextValue}>
           <div className={theme === "dark" ? "note-app" : "note-app_light"}>
             {initializing ? (
-              <ReactLoading
-                type="spinningBubbles"
-                color="aqua"
-                height={"30%"}
-                width={"30%"}
-              />
+              <div className="note-app__body">
+                <div className="note-app__loading">
+                  <ReactLoading
+                    type="spinningBubbles"
+                    color="#6D8FC5"
+                    height={"20%"}
+                    width={"20%"}
+                  />
+                </div>
+              </div>
             ) : (
               <>
                 <header>
