@@ -39,7 +39,6 @@ export default function NoteApp() {
     async function fetchUserData() {
       const { data } = await getUserLogged();
       setAuthedUser(data);
-      console.log(data);
       setInitializing(false);
     }
 

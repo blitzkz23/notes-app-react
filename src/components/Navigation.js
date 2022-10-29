@@ -22,7 +22,9 @@ export default function Navigation({ logout }) {
         <ul>
           <li>
             <button onClick={logout} className="icon-button">
-              <FiLogOut />
+              <Link to="/">
+                <FiLogOut />
+              </Link>
             </button>
           </li>
         </ul>
