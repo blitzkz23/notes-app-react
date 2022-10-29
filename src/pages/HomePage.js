@@ -4,7 +4,7 @@ import autoBind from "auto-bind";
 import { getNotes, archiveNote, deleteNote } from "../utils/api";
 import { useSearchParams } from "react-router-dom";
 
-export default function HomePage() {
+export default function HomePage({ name }) {
   const [searchParams, setSearchParams] = useSearchParams();
   const [keyword, setKeyword] = React.useState(
     searchParams.get("keyword") || ""
@@ -45,6 +45,7 @@ export default function HomePage() {
   return (
     <>
       <NoteBody
+        name={name}
         notes={filteredNotes}
         keyword={keyword}
         keywordChange={onKeywordChangeHandler}

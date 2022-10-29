@@ -159,6 +159,23 @@ async function getArchivedNotes() {
 
 /**
  *
+ * Get selected note request to API service.
+ * @returns
+ */
+async function getSingleNote(id) {
+  const response = await fetchWithToken(`${BASE_URL}/notes/${id}`);
+  const responseJson = await response.json();
+
+  if (responseJson.status !== "success") {
+    alert(responseJson.message);
+    return { error: true, data: null };
+  }
+
+  return { error: false, data: responseJson.data };
+}
+
+/**
+ *
  * Archive selected note by id request to API service.
  * @param {*} id
  * @returns
@@ -229,6 +246,7 @@ export {
   addNote,
   getNotes,
   getArchivedNotes,
+  getSingleNote,
   archiveNote,
   unarchiveNote,
   deleteNote,

@@ -24,7 +24,7 @@ export default function NoteItemActionArchive({ id, archived, archiveNote }) {
 }
 
 NoteItemActionArchive.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   archived: PropTypes.bool.isRequired,
   archiveNote: PropTypes.func.isRequired,
 };

@@ -13,7 +13,6 @@ export default function ArchivePage() {
     });
   }, [notes]);
 
-  console.log(notes);
   const archivedNote = notes.filter((note) => {
     return note.archived === true;
   });

@@ -32,7 +32,7 @@ export default function NoteItem({
 }
 
 NoteItem.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   createdAt: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   body: PropTypes.string.isRequired,

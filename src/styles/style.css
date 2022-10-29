@@ -49,6 +49,23 @@ textarea::placeholder {
   border-bottom: 1px solid #aaa;
 }
 
+.note-app__welcome {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #75c6a6;
+}
+
+.icon-button {
+  background-color: transparent;
+  color: white;
+  border: 0;
+  font-size: 28px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .note-app__header h1 {
   margin: 8px 0;
   flex: 1;

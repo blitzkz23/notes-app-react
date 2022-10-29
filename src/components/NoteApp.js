@@ -39,6 +39,7 @@ export default function NoteApp() {
     async function fetchUserData() {
       const { data } = await getUserLogged();
       setAuthedUser(data);
+      console.log(data);
       setInitializing(false);
     }
 
@@ -74,7 +75,10 @@ export default function NoteApp() {
               </Routes>
             ) : (
               <Routes>
-                <Route path={pathDefault} element={<HomePage />} />
+                <Route
+                  path={pathDefault}
+                  element={<HomePage name={authedUser.name} />}
+                />
                 <Route path={pathAdd} element={<AddPage />} />
                 <Route path={pathArchive} element={<ArchivePage />} />
                 <Route path={pathDetail} element={<DetailPage />} />

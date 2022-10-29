@@ -1,13 +1,17 @@
 import React from "react";
 import { PropTypes } from "prop-types";
 import parser from "html-react-parser";
+import { type } from "@testing-library/user-event/dist/type";
 
 export default function NoteDetail({ title, body, createdAt }) {
+  console.log("Emang ini bukan string?", typeof body);
   return (
     <div className="note-detail__content">
       <h1>{title}</h1>
       <p className="note-detail__date">{createdAt}</p>
-      <p className="note-detail__body">{parser(body)}</p>
+      <p className="note-detail__body">
+        {body === undefined ? "Loading..." : parser(body)}
+      </p>
     </div>
   );
 }

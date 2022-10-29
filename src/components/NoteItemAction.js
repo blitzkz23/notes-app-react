@@ -22,7 +22,7 @@ export default function NoteItemAction({
 }
 
 NoteItemAction.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   archived: PropTypes.bool.isRequired,
   archiveNote: PropTypes.func.isRequired,
   deleteNote: PropTypes.func.isRequired,

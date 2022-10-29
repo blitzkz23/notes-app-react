@@ -4,6 +4,7 @@ import { PropTypes } from "prop-types";
 import SearchBar from "./SearchBar";
 
 export default function NoteBody({
+  name,
   notes,
   keyword,
   keywordChange,
@@ -14,6 +15,7 @@ export default function NoteBody({
 
   return (
     <div className="note-app__body">
+      <h1 className="note-app__welcome">Selamat datang, {name}.</h1>
       <SearchBar keyword={keyword} keywordChange={keywordChange} />
       <h2>Catatan Aktif</h2>
       <NoteList

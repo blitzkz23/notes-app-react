@@ -15,6 +15,6 @@ export default function NoteItemActionDelete({ id, deleteNote }) {
 }
 
 NoteItemActionDelete.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   deleteNote: PropTypes.func.isRequired,
 };
