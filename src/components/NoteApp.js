@@ -13,12 +13,18 @@ import { putAccessToken, getUserLogged } from "../utils/api";
 import LocaleContext from "../contexts/LocaleContext";
 import ThemeContext from "../contexts/ThemeContext";
 import ReactLoading from "react-loading";
+import {
+  putThemeSettings,
+  getThemeSettings,
+  putLocaleSettings,
+  getLocaleSettings,
+} from "../utils/config";
 
 export default function NoteApp() {
   const [authedUser, setAuthedUser] = React.useState(null);
   const [initializing, setInitializing] = React.useState(true);
-  const [locale, setLocale] = React.useState("id");
-  const [theme, setTheme] = React.useState("dark");
+  const [locale, setLocale] = React.useState(getLocaleSettings);
+  const [theme, setTheme] = React.useState(getThemeSettings);
 
   const pathDefault = "/";
   const pathAdd = "/add";
@@ -41,12 +47,14 @@ export default function NoteApp() {
 
   const toggleLocale = () => {
     setLocale((prevLocale) => {
+      putLocaleSettings(prevLocale === "id" ? "en" : "id");
       return prevLocale === "id" ? "en" : "id";
     });
   };
 
   const toggleTheme = () => {
     setTheme((prevTheme) => {
+      putThemeSettings(prevTheme === "dark" ? "light" : "dark");
       return prevTheme === "dark" ? "light" : "dark";
     });
   };
