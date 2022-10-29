@@ -5,6 +5,7 @@ import SearchBar from "./SearchBar";
 import LocaleContext from "../contexts/LocaleContext";
 import { FiPlus } from "react-icons/fi";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 export default function NoteBody({
   name,
@@ -41,6 +42,7 @@ export default function NoteBody({
 }
 
 NoteBody.propTypes = {
+  name: PropTypes.string.isRequired,
   notes: PropTypes.arrayOf(PropTypes.object).isRequired,
   keyword: PropTypes.string.isRequired,
   keywordChange: PropTypes.func.isRequired,

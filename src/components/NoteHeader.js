@@ -1,6 +1,7 @@
 import React from "react";
 import Navigation from "./Navigation";
 import ThemeContext from "../contexts/ThemeContext";
+import PropTypes from "prop-types";
 
 export default function NoteHeader({ logout }) {
   const { theme } = React.useContext(ThemeContext);
@@ -16,3 +17,7 @@ export default function NoteHeader({ logout }) {
     </div>
   );
 }
+
+NoteHeader.propTypes = {
+  logout: PropTypes.func.isRequired,
+};
