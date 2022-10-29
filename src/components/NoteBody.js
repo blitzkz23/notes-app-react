@@ -14,7 +14,7 @@ export default function NoteBody({
 }) {
   const { locale } = React.useContext(LocaleContext);
   const filterActive = notes.filter((note) => note.archived === false);
-  console.log(name);
+
   return (
     <div className="note-app__body">
       <h1 className="note-app__welcome">

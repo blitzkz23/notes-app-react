@@ -1,4 +1,9 @@
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+import React from "react";
+
 const BASE_URL = "https://notes-api.dicoding.dev/v1";
+const ErrorSwal = withReactContent(Swal);
 
 /**
  * Put access token to local storage
@@ -33,7 +38,11 @@ async function register({ name, email, password }) {
   const responseJson = await response.json();
 
   if (responseJson.status !== "success") {
-    alert(responseJson.message);
+    ErrorSwal.fire({
+      title: <strong>Error</strong>,
+      html: <div>{responseJson.message}</div>,
+      icon: "error",
+    });
     return { error: true };
   }
 
@@ -58,7 +67,11 @@ async function login({ email, password }) {
   const responseJson = await response.json();
 
   if (responseJson.status !== "success") {
-    alert(responseJson.message);
+    ErrorSwal.fire({
+      title: <strong>Error</strong>,
+      html: <div>{responseJson.message}</div>,
+      icon: "error",
+    });
     return { error: true };
   }
 
@@ -116,7 +129,6 @@ async function addNote({ title, body }) {
   const responseJson = await response.json();
 
   if (responseJson.status !== "success") {
-    alert(responseJson.message);
     return { error: true };
   }
 

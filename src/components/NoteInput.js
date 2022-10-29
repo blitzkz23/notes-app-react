@@ -1,6 +1,11 @@
 import React from "react";
 import { PropTypes } from "prop-types";
 import { LocaleConsumer } from "../contexts/LocaleContext";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+
+const ErrorSwal = withReactContent(Swal);
+const SuccessSwal = withReactContent(Swal);
 
 export default class NoteInput extends React.Component {
   constructor(props) {
@@ -39,9 +44,18 @@ export default class NoteInput extends React.Component {
   onSubmitEventHandler(event) {
     event.preventDefault();
     if (this.state.title === "" || this.state.body === "") {
-      alert("Mohon mengisi field yang masih kosong");
+      ErrorSwal.fire({
+        title: <strong>Error</strong>,
+        html: <div>Mohon mengisi field yang masih kosong</div>,
+        icon: "error",
+      });
     } else {
       this.props.addNote(this.state);
+      SuccessSwal.fire({
+        title: <strong>Success</strong>,
+        html: <div>Catatan berhasil dibuat</div>,
+        icon: "success",
+      });
     }
     this.setState(() => {
       return {

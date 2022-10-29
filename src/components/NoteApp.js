@@ -12,6 +12,7 @@ import AuthHeader from "./AuthHeader";
 import { putAccessToken, getUserLogged } from "../utils/api";
 import LocaleContext from "../contexts/LocaleContext";
 import ThemeContext from "../contexts/ThemeContext";
+import ReactLoading from "react-loading";
 
 export default function NoteApp() {
   const [authedUser, setAuthedUser] = React.useState(null);
@@ -80,7 +81,12 @@ export default function NoteApp() {
         <LocaleContext.Provider value={localeContextValue}>
           <div className={theme === "dark" ? "note-app" : "note-app_light"}>
             {initializing ? (
-              <h1>Loading...</h1>
+              <ReactLoading
+                type="spinningBubbles"
+                color="aqua"
+                height={"30%"}
+                width={"30%"}
+              />
             ) : (
               <>
                 <header>
