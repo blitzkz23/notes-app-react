@@ -1,7 +1,8 @@
 import React from "react";
 import { PropTypes } from "prop-types";
-
+import LocaleContext from "../contexts/LocaleContext";
 export default function NoteItemActionArchive({ id, archived, archiveNote }) {
+  const { locale } = React.useContext(LocaleContext);
   return (
     <React.Fragment>
       {archived === true ? (
@@ -9,14 +10,14 @@ export default function NoteItemActionArchive({ id, archived, archiveNote }) {
           className="note-item__archive-button"
           onClick={() => archiveNote(id)}
         >
-          Aktifkan
+          {locale === "id" ? "Aktifkan" : "Restore"}
         </button>
       ) : (
         <button
           className="note-item__archive-button"
           onClick={() => archiveNote(id)}
         >
-          Arsipkan
+          {locale === "id" ? "Arsipkan" : "Archive"}
         </button>
       )}
     </React.Fragment>
@@ -24,7 +25,7 @@ export default function NoteItemActionArchive({ id, archived, archiveNote }) {
 }
 
 NoteItemActionArchive.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   archived: PropTypes.bool.isRequired,
   archiveNote: PropTypes.func.isRequired,
 };

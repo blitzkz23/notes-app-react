@@ -1,5 +1,11 @@
 import React from "react";
 import { PropTypes } from "prop-types";
+import { LocaleConsumer } from "../contexts/LocaleContext";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+
+const ErrorSwal = withReactContent(Swal);
+const SuccessSwal = withReactContent(Swal);
 
 export default class NoteInput extends React.Component {
   constructor(props) {
@@ -38,9 +44,18 @@ export default class NoteInput extends React.Component {
   onSubmitEventHandler(event) {
     event.preventDefault();
     if (this.state.title === "" || this.state.body === "") {
-      alert("Mohon mengisi field yang masih kosong");
+      ErrorSwal.fire({
+        title: <strong>Error</strong>,
+        html: <div>Mohon mengisi field yang masih kosong</div>,
+        icon: "error",
+      });
     } else {
       this.props.addNote(this.state);
+      SuccessSwal.fire({
+        title: <strong>Success</strong>,
+        html: <div>Catatan berhasil dibuat</div>,
+        icon: "success",
+      });
     }
     this.setState(() => {
       return {
@@ -53,43 +68,61 @@ export default class NoteInput extends React.Component {
 
   render() {
     return (
-      <form className="note-input" onSubmit={this.onSubmitEventHandler}>
-        <h1>Buat Catatan</h1>
-        <p className="note-input__title__char-limit">
-          Max Karakter: {this.state.maxLength}
-        </p>
+      <LocaleConsumer>
+        {({ locale }) => {
+          return (
+            <form className="note-input" onSubmit={this.onSubmitEventHandler}>
+              <h1>{locale === "id" ? "Buat Catatan" : "Create a Note"}</h1>
+              <p className="note-input__title__char-limit">
+                {locale === "id"
+                  ? "Karakter tersisa: " + this.state.maxLength
+                  : "Characters left: " + this.state.maxLength}
+              </p>
 
-        {this.state.maxLength === 0 ? (
-          <input
-            className="note-input__title"
-            type="text"
-            placeholder="Masukkan judul..."
-            value={this.state.title}
-            onChange={this.onTitleChangeEventHandler}
-            maxLength="50"
-          ></input>
-        ) : (
-          <input
-            className="note-input__title"
-            type="text"
-            placeholder="Masukkan judul..."
-            value={this.state.title}
-            onChange={this.onTitleChangeEventHandler}
-          ></input>
-        )}
+              {this.state.maxLength === 0 ? (
+                <input
+                  className="note-input__title"
+                  type="text"
+                  placeholder={
+                    locale === "id" ? "Masukkan judul..." : "Enter a title..."
+                  }
+                  value={this.state.title}
+                  onChange={this.onTitleChangeEventHandler}
+                  maxLength="50"
+                ></input>
+              ) : (
+                <input
+                  className="note-input__title"
+                  type="text"
+                  placeholder={
+                    locale === "id" ? "Masukkan judul..." : "Enter a title..."
+                  }
+                  value={this.state.title}
+                  onChange={this.onTitleChangeEventHandler}
+                ></input>
+              )}
 
-        <div
-          className="note-input__body"
-          type="text"
-          placeholder="Masukkan isi catatan disini..."
-          rows="5"
-          value={this.state.body}
-          onInput={this.onBodyChangeEventHandler}
-          contentEditable
-        />
+              <div
+                className="note-input__body"
+                type="text"
+                placeholder={
+                  locale === "id"
+                    ? "Masukkan isi catatan..."
+                    : "Enter a note's content..."
+                }
+                rows="5"
+                value={this.state.body}
+                onInput={this.onBodyChangeEventHandler}
+                contentEditable
+              />
 
-        <button className="note-input__button">Buat</button>
-      </form>
+              <button className="note-input__button">
+                {locale === "id" ? "Buat Catatan" : "Create a Note"}
+              </button>
+            </form>
+          );
+        }}
+      </LocaleConsumer>
     );
   }
 }

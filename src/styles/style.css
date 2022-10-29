@@ -24,6 +24,15 @@ h2 {
   filter: drop-shadow(1px 2px 8px hsl(220deg 100% 55%));
 }
 
+.note-app_light {
+  background-color: #f4f4f5;
+  margin: 50px auto;
+  width: 1200px;
+  border-radius: 8px;
+  border: 5px solid white;
+  filter: drop-shadow(1px 2px 8px hsl(220deg 100% 55%));
+}
+
 input,
 textarea {
   padding: 12px;
@@ -49,6 +58,12 @@ textarea::placeholder {
   border-bottom: 1px solid #aaa;
 }
 
+.note-app__welcome {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #75c6a6;
+}
+
 .note-app__header h1 {
   margin: 8px 0;
   flex: 1;
@@ -70,7 +85,50 @@ textarea::placeholder {
 }
 
 .note-app__header a:hover {
+  color: #ffbd2e;
+}
+
+.note-app__header__light {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px;
+  border-bottom: 1px solid #aaa;
+}
+
+.note-app__header__light h1 {
+  margin: 8px 0;
+  flex: 1;
+  color: white;
+}
+
+.note-app__header__light ul {
+  display: flex;
+}
+
+.note-app__header__light li {
+  list-style: none;
+  margin: 0 8px;
+}
+
+.note-app__header__light a {
+  color: #75c6a6;
+  text-decoration: none;
+}
+
+.note-app__header__light a:hover {
   color: #a88bd4;
+}
+
+.icon-button {
+  background-color: transparent;
+  color: white;
+  border: 0;
+  font-size: 28px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .note-app__body input {
@@ -88,6 +146,14 @@ h2 {
   margin: 16px 0;
 }
 
+.note-app__loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin: 6rem auto;
+}
+
 .note-app__not-found {
   text-align: center;
   padding: 8%;
@@ -98,11 +164,43 @@ h2 {
   margin-top: 16px;
 }
 
+.note-app__button-add {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background-color: #75c6a6;
+  color: white;
+  border: 0;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 32px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.note-app__button-add a {
+  color: white;
+  text-decoration: none;
+  margin-top: 4px;
+}
+
+.note-app__button-add:hover {
+  background-color: #a88bd4;
+}
+
 .note-input {
   margin: 0 auto;
   max-width: 500px;
   margin-bottom: 80px;
   margin-top: 48px;
+}
+
+.note-input h1 {
+  font-size: 2rem;
 }
 
 .note-input input {
@@ -112,6 +210,7 @@ h2 {
 
 .note-input__title {
   font-weight: bold;
+  margin-top: 16px;
 }
 
 .note-input__title__char-limit {
@@ -123,7 +222,7 @@ h2 {
 .note-input button {
   display: block;
   width: 100%;
-  padding: 8px;
+  padding: 16px 8px;
   background-color: transparent;
   font-family: "Inter", sans-serif;
   color: white;
@@ -131,6 +230,11 @@ h2 {
   border-radius: 4px;
   font-weight: bold;
   cursor: pointer;
+}
+
+.note-input button:hover {
+  box-shadow: 5px 10px;
+  transition: all 0.5s ease-out;
 }
 
 .note-input__body {
@@ -256,7 +360,7 @@ h2 {
 }
 
 .note-item__archive-button {
-  color: #fff263;
+  color: #ffbd2e;
 }
 
 .note-item__archive-button:hover {
@@ -288,6 +392,21 @@ h2 {
   text-align: center;
   padding: 8%;
   font-size: 2rem;
+}
+
+.auth-subtitle {
+  margin-bottom: 32px;
+  color: #aaa;
+}
+
+.auth-account__nav {
+  margin-bottom: 32px;
+  color: #aaa;
+}
+
+.auth-account__nav a {
+  color: #ffbd2e;
+  font-weight: bold;
 }
 
 @media only screen and (min-width: 500px) {
