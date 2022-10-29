@@ -1,8 +1,11 @@
 import React from "react";
 import NoteItem from "./NoteItem";
 import { PropTypes } from "prop-types";
+import LocaleContext from "../contexts/LocaleContext";
 
 export default function NoteList({ notes, archiveNote, deleteNote }) {
+  const { locale } = React.useContext(LocaleContext);
+
   return notes.length > 0 ? (
     <div className="notes-list">
       {notes.map((note) => (
@@ -17,7 +20,11 @@ export default function NoteList({ notes, archiveNote, deleteNote }) {
   ) : (
     <div className="notes-list__empty-message">
       <img src="./empty_data.svg" alt="empty" width={400} />
-      <p>Tidak ada catatan.</p>
+      <p>
+        {locale === "id"
+          ? "Tidak ada catatan yang tersedia."
+          : "No notes available."}
+      </p>
     </div>
   );
 }
