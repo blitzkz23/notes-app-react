@@ -1,14 +1,17 @@
 import React from "react";
 import { PropTypes } from "prop-types";
+import LocaleContext from "../contexts/LocaleContext";
 
 export default function NoteItemActionDelete({ id, deleteNote }) {
+  const { locale } = React.useContext(LocaleContext);
+
   return (
     <React.Fragment>
       <button
         className="note-item__delete-button"
         onClick={() => deleteNote(id)}
       >
-        Hapus
+        {locale === "id" ? "Hapus" : "Delete"}
       </button>
     </React.Fragment>
   );

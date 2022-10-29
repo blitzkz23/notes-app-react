@@ -1,11 +1,12 @@
 import React from "react";
 import { getArchivedNotes, unarchiveNote, deleteNote } from "../utils/api";
-import autoBind from "auto-bind";
+import LocaleContext from "../contexts/LocaleContext";
 import {} from "../utils/data";
 import NoteList from "../components/NoteList";
 
 export default function ArchivePage() {
   const [notes, setNotes] = React.useState([]);
+  const { locale } = React.useContext(LocaleContext);
 
   React.useEffect(() => {
     getArchivedNotes().then(({ data }) => {
@@ -35,7 +36,7 @@ export default function ArchivePage() {
 
   return (
     <section className="note-app__body">
-      <h2>Catatan Terarsipkan</h2>
+      <h2>{locale === "id" ? "Catatan Terasipkan" : "Archived Notes"}</h2>
       <NoteList
         notes={archivedNote}
         archiveNote={onUnarchiveNoteHandler}
