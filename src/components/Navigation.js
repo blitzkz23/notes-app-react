@@ -1,10 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FiLogOut, FiGlobe } from "react-icons/fi";
+import { FiLogOut, FiGlobe, FiSun, FiMoon } from "react-icons/fi";
 import LocaleContext from "../contexts/LocaleContext";
+import ThemeContext from "../contexts/ThemeContext";
 
 export default function Navigation({ logout }) {
   const { locale, toggleLocale } = React.useContext(LocaleContext);
+  const { theme, toggleTheme } = React.useContext(ThemeContext);
 
   return (
     <>
@@ -23,6 +25,11 @@ export default function Navigation({ logout }) {
       </nav>
       <nav>
         <ul>
+          <li>
+            <button onClick={toggleTheme} className="icon-button">
+              <Link to="/">{theme === "dark" ? <FiSun /> : <FiMoon />}</Link>
+            </button>
+          </li>
           <li>
             <button onClick={toggleLocale} className="icon-button">
               <Link to="/">
