@@ -18,7 +18,9 @@ export default function NoteBody({
   return (
     <div className="note-app__body">
       <h1 className="note-app__welcome">
-        {locale === "id" ? "Selamat datang, " + name : "Welcome, " + name}
+        {locale === "id"
+          ? "Selamat datang, " + name + "."
+          : "Welcome, " + name + "."}
       </h1>
       <SearchBar keyword={keyword} keywordChange={keywordChange} />
       <h2>{locale === "id" ? "Catatan Aktif" : "Active Notes"}</h2>

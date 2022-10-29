@@ -25,7 +25,7 @@ h2 {
 }
 
 .note-app_light {
-  background-color: #f5f5f5;
+  background-color: #f4f4f5;
   margin: 50px auto;
   width: 1200px;
   border-radius: 8px;
@@ -64,17 +64,6 @@ textarea::placeholder {
   color: #75c6a6;
 }
 
-.icon-button {
-  background-color: transparent;
-  color: white;
-  border: 0;
-  font-size: 28px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
 .note-app__header h1 {
   margin: 8px 0;
   flex: 1;
@@ -96,7 +85,50 @@ textarea::placeholder {
 }
 
 .note-app__header a:hover {
+  color: #ffbd2e;
+}
+
+.note-app__header__light {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px;
+  border-bottom: 1px solid #aaa;
+}
+
+.note-app__header__light h1 {
+  margin: 8px 0;
+  flex: 1;
+  color: white;
+}
+
+.note-app__header__light ul {
+  display: flex;
+}
+
+.note-app__header__light li {
+  list-style: none;
+  margin: 0 8px;
+}
+
+.note-app__header__light a {
+  color: #90a959;
+  text-decoration: none;
+}
+
+.note-app__header__light a:hover {
   color: #a88bd4;
+}
+
+.icon-button {
+  background-color: transparent;
+  color: white;
+  border: 0;
+  font-size: 28px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .note-app__body input {
@@ -162,6 +194,11 @@ h2 {
   border-radius: 4px;
   font-weight: bold;
   cursor: pointer;
+}
+
+.note-input button:hover {
+  box-shadow: 5px 10px;
+  transition: all 0.5s ease-out;
 }
 
 .note-input__body {
@@ -287,7 +324,7 @@ h2 {
 }
 
 .note-item__archive-button {
-  color: #fff263;
+  color: #ffbd2e;
 }
 
 .note-item__archive-button:hover {
@@ -332,7 +369,7 @@ h2 {
 }
 
 .auth-account__nav a {
-  color: #a88bd4;
+  color: #ffbd2e;
   font-weight: bold;
 }
 
