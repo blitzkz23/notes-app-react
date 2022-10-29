@@ -1,6 +1,5 @@
 import React from "react";
 import NoteBody from "../components/NoteBody";
-import autoBind from "auto-bind";
 import { getNotes, archiveNote, deleteNote } from "../utils/api";
 import { useSearchParams } from "react-router-dom";
 
