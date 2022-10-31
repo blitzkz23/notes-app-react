@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { FiLogOut, FiGlobe, FiSun, FiMoon } from "react-icons/fi";
 import LocaleContext from "../contexts/LocaleContext";
 import ThemeContext from "../contexts/ThemeContext";
+import PropTypes from "prop-types";
 
 export default function Navigation({ logout }) {
   const { locale, toggleLocale } = React.useContext(LocaleContext);
@@ -46,3 +47,7 @@ export default function Navigation({ logout }) {
     </>
   );
 }
+
+Navigation.propTypes = {
+  logout: PropTypes.func.isRequired,
+};

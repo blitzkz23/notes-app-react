@@ -1,6 +1,6 @@
 import React from "react";
 import NoteList from "./NoteList";
-import { PropTypes } from "prop-types";
+import PropTypes from "prop-types";
 import SearchBar from "./SearchBar";
 import LocaleContext from "../contexts/LocaleContext";
 import { FiPlus } from "react-icons/fi";
@@ -41,6 +41,7 @@ export default function NoteBody({
 }
 
 NoteBody.propTypes = {
+  name: PropTypes.string.isRequired,
   notes: PropTypes.arrayOf(PropTypes.object).isRequired,
   keyword: PropTypes.string.isRequired,
   keywordChange: PropTypes.func.isRequired,

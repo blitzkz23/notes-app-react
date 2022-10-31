@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import LoginInput from "../components/LoginInput";
 import { login } from "../utils/api";
+import PropTypes from "prop-types";
 
 export default function LoginPage({ loginSuccess }) {
   const navigate = useNavigate();
@@ -21,3 +22,7 @@ export default function LoginPage({ loginSuccess }) {
     </section>
   );
 }
+
+LoginPage.propTypes = {
+  loginSuccess: PropTypes.func.isRequired,
+};

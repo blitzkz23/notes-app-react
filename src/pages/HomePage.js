@@ -2,6 +2,7 @@ import React from "react";
 import NoteBody from "../components/NoteBody";
 import { getNotes, archiveNote, deleteNote } from "../utils/api";
 import { useSearchParams } from "react-router-dom";
+import PropTypes from "prop-types";
 
 export default function HomePage({ name }) {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -54,3 +55,7 @@ export default function HomePage({ name }) {
     </>
   );
 }
+
+HomePage.propTypes = {
+  name: PropTypes.string.isRequired,
+};
