@@ -24,10 +24,10 @@ export default function NoteApp() {
   const [authedUser, setAuthedUser] = React.useState(null);
   const [initializing, setInitializing] = React.useState(true);
   const [locale, setLocale] = React.useState(
-    getLocaleSettings === null ? "en" : getLocaleSettings
+    getLocaleSettings == null ? "en" : getLocaleSettings
   );
   const [theme, setTheme] = React.useState(
-    getThemeSettings === null ? "dark" : getThemeSettings
+    getThemeSettings == null ? "dark" : getThemeSettings
   );
 
   const pathDefault = "/";
