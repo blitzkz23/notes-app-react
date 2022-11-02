@@ -91,7 +91,7 @@ export default function NoteApp() {
     <>
       <ThemeContext.Provider value={themeContextValue}>
         <LocaleContext.Provider value={localeContextValue}>
-          <div className={theme === "dark" ? "note-app" : "note-app_light"}>
+          <div className={theme === "dark" ? "note-app" : "note-app__light"}>
             {initializing ? (
               <div className="note-app__body">
                 <div className="note-app__loading">

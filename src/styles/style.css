@@ -370,7 +370,7 @@ h2 {
 }
 
 /* Light Mode */
-.note-app_light {
+.note-app__light {
   background-color: #f4f4f5;
   margin: 50px auto;
   width: 1200px;
@@ -380,23 +380,23 @@ h2 {
   color: #75c6a6;
 }
 
-.note-app_light .note-input__body {
+.note-app__light .note-input__body {
   color: #82aaef;
 }
 
-.note-app_light input {
+.note-app__light input {
   color: #82aaef;
 }
 
-.note-app_light button {
+.note-app__light button {
   color: #75c6a6;
 }
 
-.note-app_light button:hover {
+.note-app__light button:hover {
   color: #a88bd4;
 }
 
-.note-app_light .note-app__button-add {
+.note-app__light .note-app__button-add {
   background-color: #75c6a6;
 }
 
@@ -428,11 +428,11 @@ h2 {
   text-decoration: none;
 }
 
-.note-app_light .note-item__delete-button {
+.note-app__light .note-item__delete-button {
   color: #ff5f52;
 }
 
-.note-app_light .note-item__archive-button {
+.note-app__light .note-item__archive-button {
   color: #ffbd2e;
 }
 
@@ -484,10 +484,18 @@ h2 {
   .note-app {
     width: 100%;
   }
+
+  .note-app__light {
+    width: 100%;
+  }
 }
 
 @media only screen and (max-width: 500px) {
   .note-app__header input {
     width: 50%;
+  }
+
+  #header-logo {
+    display: none;
   }
 }

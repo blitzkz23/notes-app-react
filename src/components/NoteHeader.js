@@ -12,7 +12,7 @@ export default function NoteHeader({ logout }) {
         theme === "dark" ? "note-app__header" : "note-app__header__light"
       }
     >
-      <img src="./colordots.svg" alt="color dots" width="80" />
+      <img src="./colordots.svg" alt="color dots" width="80" id="header-logo" />
       <Navigation logout={logout} />
     </div>
   );
